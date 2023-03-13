@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({
   return (
     <Layout logos={logos} companyInfo={companyInfo} menu={menu} form={form}>
       {hero && <FrontHero {...hero} video={heroVideo} />}
-      <Boxen {...aops}/>
+      <Boxen {...aops} />
       {services && <Services {...services} />}
       {companyHistory && <CompanyHistory {...companyHistory} />}
     </Layout>
@@ -35,7 +35,7 @@ type UnwrapPromise<T> = T extends Promise<infer U> ? U : T
 type Props = UnwrapPromise<ReturnType<typeof getStaticProps>>['props']
 
 export const getStaticProps = async () => {
-  let [homePage] = await sanityClient.getAll('homePage') 
+  let [homePage] = await sanityClient.getAll('homePage')
 
   if (!!homePage?.hero?.buttons) {
     homePage.hero.buttons = (await Promise.all(
@@ -69,6 +69,15 @@ export const getStaticProps = async () => {
           image: service.image
             ? await sanityClient.expand(service.image.asset)
             : null,
+          link:
+            service.link && service.link.internalLink
+              ? {
+                  ...service.link,
+                  internalLink: await sanityClient.expand(
+                    service.link.internalLink
+                  ),
+                }
+              : service.link,
         }
       })
     )) as any

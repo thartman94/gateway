@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Image from '@common/SanityImage'
 import Content from '@common/Content'
 import AnimateIn from '@common/AnimateIn'
+import Link from 'next/link'
 
 const Item = styled.div(({ flip }: { flip: boolean }) => [
   tw`lg:items-stretch flex flex-col items-center`,
@@ -16,6 +17,9 @@ const ContentWrapper = styled.div(({ flip }: { flip: boolean }) => [
 ])
 
 const Title = tw.span`text-4xl font-poppins relative pb-2 after:([content: ''] bg-primary w-full h-1 bottom-0 left-0 absolute)`
+const Button = styled(Link)`
+  ${tw`bg-offBlack text-white text-xl font-bold py-1 duration-300 ease-in-out px-4 hover:(bg-primary)`}
+`
 
 interface ServiceItemProps {
   flip: boolean
@@ -33,6 +37,10 @@ const ServiceItem: FC<ServiceItemProps> = ({
   description,
   ...rest
 }) => {
+  console.log(link)
+  let url = ''
+  if (link && link.type === 'internal') url = link.internalLink.slug.current
+  if (link && link.type === 'external') url = link.externalUrl
   return (
     <AnimateIn
       direction={flip ? 'left' : 'right'}
@@ -49,6 +57,14 @@ const ServiceItem: FC<ServiceItemProps> = ({
         <ContentWrapper flip={flip}>
           <Title>{title}</Title>
           <Content content={description} />
+          {!!url && (
+            <Button
+              href={url}
+              target={link.type === 'internal' ? '_self' : '_blank'}
+            >
+              {link.text}
+            </Button>
+          )}
         </ContentWrapper>
       </Item>
     </AnimateIn>
