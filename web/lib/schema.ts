@@ -63,7 +63,7 @@ export interface Page extends SanityDocument {
    *
    *
    */
-  layout: "default" | "home" | "contact" | "sitemap";
+  layout: "default" | "home" | "contact" | "sitemap" | "resturants";
 
   /**
    * Parent — `reference`
@@ -73,23 +73,18 @@ export interface Page extends SanityDocument {
   parent?: SanityReference<Page>;
 
   /**
-   * Featured Image — `image`
-   *
-   *
-   */
-  featuredImage?: {
-    _type: "image";
-    asset: SanityReference<SanityImageAsset>;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
-
-  /**
    * Content — `blockContent`
    *
    *
    */
   content?: BlockContent;
+
+  /**
+   * Form Override — `reference`
+   *
+   *
+   */
+  formOverride?: SanityReference<Form>;
 
   /**
    * Publish Status — `string`
@@ -625,6 +620,18 @@ export type Resturant = {
   };
 
   /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
    * Phone Number — `string`
    *
    *
@@ -651,6 +658,27 @@ export type Resturant = {
    *
    */
   menuLink?: string;
+
+  /**
+   * Menu Images — `array`
+   *
+   *
+   */
+  menuImages?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
+
+  /**
+   * Menu Type — `string`
+   *
+   *
+   */
+  menuType?: "modal" | "link";
 };
 
 export type FormField = {

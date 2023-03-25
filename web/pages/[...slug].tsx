@@ -13,14 +13,14 @@ const Page: NextPage<Props> = ({ page, ...rest }) => {
   let Template: FC<PageTemplateProps> = Inner
 
   switch (page.layout) {
-    case 'Inner':
-      Template = Inner
-      break
     case 'contact':
       Template = Contact
       break
     case 'sitemap':
       Template = Sitemap
+      break
+    default:
+      Template = Inner
       break
   }
 

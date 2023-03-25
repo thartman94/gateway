@@ -1,14 +1,27 @@
 import type { FC, ReactNode } from 'react'
 import tw from 'twin.macro'
+import styled from 'styled-components'
 
-const Section = tw.section`pt-52 pb-20 mx-auto px-12 max-w-[80rem] flex flex-col items-center gap-8`
+const Section = styled.section(({ isResturant }: { isResturant: boolean }) => [
+  tw`pt-52 pb-20 mx-auto px-12 max-w-[80rem] flex flex-col items-center gap-8`,
+  isResturant && tw`max-w-none px-0 py-0 bg-offWhite`,
+])
 
 interface PageWrapperProps {
   children: ReactNode
+  isResturant?: boolean
 }
 
-const PageWrapper: FC<PageWrapperProps> = ({ children, ...rest }) => {
-  return <Section {...rest}>{children}</Section>
+const PageWrapper: FC<PageWrapperProps> = ({
+  children,
+  isResturant = false,
+  ...rest
+}) => {
+  return (
+    <Section isResturant={isResturant} {...rest}>
+      {children}
+    </Section>
+  )
 }
 
 export default PageWrapper

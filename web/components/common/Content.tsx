@@ -46,13 +46,15 @@ const styles = () => [
 const Article = styled.article(() => [styles])
 const Div = styled.div(() => [styles])
 
-const components = {
-  types: {
-    resturant: ({ value }: { value: ResturantType }) => (
-      <Resturant {...value} />
-    ),
-  },
-  block: {},
+const components = () => {
+  return {
+    types: {
+      resturant: ({ value }: { value: ResturantType }) => {
+        return <Resturant {...value} />
+      },
+    },
+    block: {},
+  }
 }
 
 interface ContentProps {
@@ -62,9 +64,10 @@ interface ContentProps {
 
 const Content: FC<ContentProps> = ({ article = false, content }) => {
   const Wrapper = article ? Article : Div
+
   return (
     <Wrapper>
-      <PortableText value={content} components={components} />
+      <PortableText value={content} components={components()} />
     </Wrapper>
   )
 }

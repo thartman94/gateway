@@ -37,7 +37,6 @@ const ServiceItem: FC<ServiceItemProps> = ({
   description,
   ...rest
 }) => {
-  console.log(link)
   let url = ''
   if (link && link.type === 'internal') url = link.internalLink.slug.current
   if (link && link.type === 'external') url = link.externalUrl

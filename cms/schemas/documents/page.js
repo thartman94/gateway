@@ -54,6 +54,7 @@ export default {
           { title: 'Home', value: 'home' },
           { title: 'Contact', value: 'contact' },
           { title: 'Sitemap', value: 'sitemap' },
+          { title: 'Resturants', value: 'resturants' },
         ],
       },
     },
