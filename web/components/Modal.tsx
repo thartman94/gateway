@@ -8,7 +8,7 @@ import React, {
 import type { FC, ReactNode } from 'react'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-// import { toggleScroll } from 'lib/functions'
+import { toggleScroll } from '@functions'
 
 export const ModalContext = createContext({
   open: false,
@@ -26,7 +26,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [open, setOpen] = useState<any>(false)
   const closeModal = () => {
     setOpen(false)
-    // toggleScroll('enable')
+    toggleScroll('enable')
   }
 
   // TODO: Impliment escape key to close modal
@@ -44,7 +44,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
         children: childrenState,
         title,
         openModal: (content: ReactNode, title: string = 'Edit') => {
-          // toggleScroll('disable')
+          toggleScroll('disable')
           setTitle(title)
           setChildren(content)
           setOpen(true)
