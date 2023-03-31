@@ -9,13 +9,9 @@ import { useModal } from 'components/Modal'
 import MenuSlider from 'components/MenuSlider'
 import Image from '@common/SanityImage'
 import { cleanPhoneNumber } from '@functions'
-import AnimateIn from '@common/AnimateIn'
 
 const Wrapper = styled.div`
-  ${tw`flex shadow-2xl flex-row py-8 md:(h-[30rem] py-0) bg-offWhite w-full relative mb-10 items-start justify-start duration-500 ease-in-out  
-  // before:([content:''] absolute top-0 left-0 w-full shadow-xl h-px bg-primary z-50)  
-  // after:([content:''] absolute bottom-0 left-0 w-full shadow-xl h-px bg-primary z-50)  
-  `}
+  ${tw`flex shadow-2xl flex-row py-8 md:(h-[30rem] py-0) bg-offWhite w-full relative mb-10 items-start justify-start duration-500 ease-in-out`}
 
   :nth-of-type(even) {
     ${tw` flex-row-reverse`}
@@ -41,20 +37,15 @@ const Wrapper = styled.div`
     ${tw`mb-0`}
   }
 `
-
 const buttonStyles = [
   tw`mr-12 bg-primary duration-300 ease-in-out text-white! px-8 uppercase font-bold rounded-lg py-3 shadow-xl hover:bg-offBlack`,
 ]
-
 const Link = styled(NLink)(() => buttonStyles)
 const Button = styled.button(() => buttonStyles)
 
-const Left = tw(
-  AnimateIn
-)`flex flex-col md:py-8 h-full justify-center items-center w-full md:w-2/5 md:pl-20 2xl:pl-40 z-30 gap-2`
+const Left = tw.div`flex flex-col md:py-8 h-full justify-center items-center w-full md:w-2/5 md:pl-20 2xl:pl-40 z-30 gap-2`
 
 const Ang = tw.div`hidden md:flex border-t-[30rem] border-y-offWhite duration-500 ease-in-out w-0 h-0 self-end bg-transparent z-20 border-r-[10rem] border-x-transparent`
-
 const Right = tw.div`hidden md:flex flex-col h-full items-start w-3/5 gap-2 absolute right-0 z-10`
 const Span = tw.span`flex flex-row gap-2 font-bold items-center leading-none ml-2`
 
