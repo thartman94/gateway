@@ -27,58 +27,6 @@ const NavButton = tw.button`md:hidden flex flex-col shadow-xl justify-center ite
 
 const Line = tw.div`flex bg-white h-0.5 w-full duration-500 ease-in-out my-[3px] [&:nth-child(2)]:(translate-x-1)`
 
-const navItems = [
-  {
-    title: 'Resturants',
-    url: '/resturants',
-  },
-  {
-    title: 'Services',
-    url: '#',
-    children: [
-      {
-        title: 'Fuel and Trucker Services',
-        url: '/fuel-and-trucking-services',
-      },
-      {
-        title: 'Lodging',
-        url: '/lodging',
-      },
-      {
-        title: 'Shopping',
-        url: '/shopping',
-      },
-      {
-        title: 'Bus Services',
-        url: '/bus-services',
-      },
-      {
-        title: 'Conferences',
-        url: '/conferences',
-      },
-    ],
-  },
-  {
-    title: 'Employment',
-    url: '#',
-    children: [
-      {
-        title: 'Employment Opportunities',
-        url: '#',
-      },
-      {
-        title: 'Current Employees',
-        url: '#',
-      },
-    ],
-  },
-  {
-    title: 'Contact Us',
-    url: '/contact-us',
-    children: [],
-  },
-]
-
 interface FilterProps {
   logos: LogosType
   inner: boolean
@@ -136,9 +84,10 @@ const Header: FC<FilterProps> = ({
         <span tw="mt-0.5">menu</span>
       </NavButton>
       <MobileNav
-        navItems={navItems}
+        menu={menu}
         isOpen={menuOpen}
         setIsOpen={setMenuOpen}
+        logos={logos}
       />
     </Component>
   )

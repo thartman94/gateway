@@ -53,7 +53,7 @@ const DesktopNav: FC<Props> = ({ menu, ...rest }) => {
     )
   }
 
-  return <Nav {...rest}>{menu.length > 0 && listItems(menu)} </Nav>
+  return <Nav {...rest}>{menu.length > 0 && listItems(menu)}</Nav>
 }
 
 export default DesktopNav

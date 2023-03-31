@@ -6,6 +6,7 @@ import AnimateIn from '@common/AnimateIn'
 import ImSanityImageage from '@common/SanityImage'
 
 const Section = tw.section`flex relative flex-wrap flex-col md:flex-row w-full items-stretch justify-between pt-10 px-20`
+
 const Box = styled(AnimateIn)`
   ${tw`z-10 text-center items-center duration-300 ease-in-out flex flex-col text-xl font-bold md:max-w-[50%] xl:max-w-[25%] w-full justify-end mb-12 md:mb-20`}
 `

@@ -15,7 +15,7 @@ const styles = ({
   tw`text-6xl sm:text-7xl font-allita relative flex flex-col items-center text-center pb-4 after:([content: ""] bg-primary h-1 absolute duration-700 ease-in-out bottom-0 )`,
   !!white ? tw`text-white` : tw`text-font`,
   !!inView ? tw`after:(w-3/4)` : tw`after:(w-0)`,
-  !!inner ? tw`font-poppins sm:text-6xl mb-12` : tw``,
+  !!inner ? tw`font-poppins text-4xl sm:text-5xl md:text-6xl mb-12` : tw``,
 ]
 
 const H1 = styled.h1(() => [styles])
