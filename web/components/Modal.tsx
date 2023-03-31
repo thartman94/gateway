@@ -71,7 +71,7 @@ const Container = styled.div(({ open }: { open: boolean }) => [
 
 const Overlay = styled.div(({ open }: { open: boolean }) => [
   tw`absolute top-0 bottom-0 w-full h-full transition-opacity bg-black`,
-  open ? tw`opacity-40 pointer-events-auto` : tw`opacity-0 pointer-events-none`,
+  open ? tw`opacity-70 pointer-events-auto` : tw`opacity-0 pointer-events-none`,
 ])
 
 const Close = tw.button`-translate-y-full top-0 font-bold uppercase text-sm py-1 right-0 absolute z-10 text-white hover:(text-primary) duration-300 ease-in-out flex gap-1.5`

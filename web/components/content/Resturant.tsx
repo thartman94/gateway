@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     ${tw` flex-row-reverse`}
 
     .left {
-      ${tw`2xl:pr-40 md:pr-20 pl-0`}
+      ${tw`2xl:pr-40 md:pr-20 md:pl-0`}
     }
 
     .ang {
@@ -43,7 +43,7 @@ const buttonStyles = [
 const Link = styled(NLink)(() => buttonStyles)
 const Button = styled.button(() => buttonStyles)
 
-const Left = tw.div`flex flex-col md:py-8 h-full justify-center items-center w-full md:w-2/5 md:pl-20 2xl:pl-40 z-30 gap-2`
+const Left = tw.div`flex flex-col md:py-8 h-full justify-center items-center w-full md:w-2/5 md:pl-20 2xl:pl-40 z-30 gap-2 px-4`
 
 const Ang = tw.div`hidden md:flex border-t-[30rem] border-y-offWhite duration-500 ease-in-out w-0 h-0 self-end bg-transparent z-20 border-r-[10rem] border-x-transparent`
 const Right = tw.div`hidden md:flex flex-col h-full items-start w-3/5 gap-2 absolute right-0 z-10`
@@ -63,14 +63,14 @@ const Resturant: FC<ResturantType> = ({
   const { openModal } = useModal()
   return (
     <Wrapper {...rest}>
-      <Left className="left" direction="right" distance="50px">
+      <Left className="left">
         {!!logo && (
           <Image
             image={logo}
-            tw="mb-6 max-h-[12rem] max-w-[40vw] object-contain w-auto"
+            tw="mb-6 max-h-[12rem] max-w-full md:max-w-[40vw] object-contain w-auto"
           />
         )}
-        <div tw="flex flex-col items-center md:items-start gap-y-6 2xl:(flex-row justify-between items-center) w-full ">
+        <div tw="flex flex-col items-start md:items-center gap-y-6 2xl:(flex-row justify-between items-center) w-full ">
           <div tw="relative flex flex-col gap-2">
             <Span>
               <FaUtensils />
