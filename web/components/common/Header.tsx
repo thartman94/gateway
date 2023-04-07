@@ -1,8 +1,9 @@
 import type { FC } from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import type { Logos as LogosType } from 'lib/schema'
 import DesktopNav from '@common/DesktopNav'
@@ -43,7 +44,9 @@ const Header: FC<FilterProps> = ({
 }) => {
   const [smallHeader, setSmallHeader] = useState<boolean>(false)
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  const [pageLoading, setPageLoading] = useState<boolean>(false)
   const { logo, hcLogo } = logos
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +61,16 @@ const Header: FC<FilterProps> = ({
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
+  const hideMenu = useCallback(() => {
+    setMenuOpen(false)
+  }, [setMenuOpen])
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', hideMenu)
+
+    return () => router.events.off('routeChangeStart', hideMenu)
+  }, [hideMenu, router.events])
 
   return (
     <Component {...rest} inner={inner} small={smallHeader}>
