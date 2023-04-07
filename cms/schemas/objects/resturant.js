@@ -19,6 +19,14 @@ export default {
       },
     },
     {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: 'phoneNumber',
       title: 'Phone Number',
       type: 'string',
@@ -37,6 +45,28 @@ export default {
       name: 'menuLink',
       title: 'Menu Link',
       type: 'url',
+      hidden: ({ parent }) => parent.menuType !== 'link',
+    },
+    {
+      name: 'menuImages',
+      title: 'Menu Images',
+      type: 'array',
+      of: [{ type: 'image' }],
+      hidden: ({ parent }) => parent.menuType !== 'modal',
+    },
+    {
+      name: 'menuType',
+      title: 'Menu Type',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Modal', value: 'modal' },
+          { title: 'Link', value: 'link' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      initialValue: 'modal',
     },
   ],
 }

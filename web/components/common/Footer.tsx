@@ -8,7 +8,7 @@ import Title from '@common/Title'
 import type { Form as FormType } from 'lib/schema'
 
 const Section = styled.footer(({ contact }: { contact: boolean }) => [
-  tw`bg-font md:px-12 flex flex-col w-full px-4 pt-32 pb-12`,
+  tw`bg-font md:px-12 flex flex-col w-full px-4 pt-20 md:pt-32 pb-12`,
   contact && tw`pt-60`,
 ])
 const Top = tw.div`flex flex-col lg:(flex-row  gap-12) gap-20 mb-24`

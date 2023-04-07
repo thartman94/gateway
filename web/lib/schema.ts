@@ -63,7 +63,11 @@ export interface Page extends SanityDocument {
    *
    *
    */
+<<<<<<< HEAD
   layout: 'default' | 'home' | 'contact' | 'sitemap'
+=======
+  layout: "default" | "home" | "contact" | "sitemap" | "resturants";
+>>>>>>> aa1fe304408b7a9846993287ff3b99b61cc9e138
 
   /**
    * Parent — `reference`
@@ -73,23 +77,31 @@ export interface Page extends SanityDocument {
   parent?: SanityReference<Page>
 
   /**
-   * Featured Image — `image`
+   * Content — `blockContent`
    *
    *
    */
+<<<<<<< HEAD
   featuredImage?: {
     _type: 'image'
     asset: SanityReference<SanityImageAsset>
     crop?: SanityImageCrop
     hotspot?: SanityImageHotspot
   }
+=======
+  content?: BlockContent;
+>>>>>>> aa1fe304408b7a9846993287ff3b99b61cc9e138
 
   /**
-   * Content — `blockContent`
+   * Form Override — `reference`
    *
    *
    */
+<<<<<<< HEAD
   content?: BlockContent
+=======
+  formOverride?: SanityReference<Form>;
+>>>>>>> aa1fe304408b7a9846993287ff3b99b61cc9e138
 
   /**
    * Publish Status — `string`
@@ -286,18 +298,33 @@ export interface HomePage extends SanityDocument {
   hero?: FrontHero
 
   /**
-   * Company History — `companyHistory`
+   * Aops — `aops`
    *
    *
    */
+<<<<<<< HEAD
   companyHistory?: CompanyHistory
+=======
+  aops?: Aops;
+>>>>>>> aa1fe304408b7a9846993287ff3b99b61cc9e138
 
   /**
    * Services — `services`
    *
    *
    */
+<<<<<<< HEAD
   services?: Services
+=======
+  services?: Services;
+
+  /**
+   * Company History — `companyHistory`
+   *
+   *
+   */
+  companyHistory?: CompanyHistory;
+>>>>>>> aa1fe304408b7a9846993287ff3b99b61cc9e138
 }
 
 /**
@@ -618,6 +645,18 @@ export type Resturant = {
   }
 
   /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
    * Phone Number — `string`
    *
    *
@@ -643,8 +682,34 @@ export type Resturant = {
    *
    *
    */
+<<<<<<< HEAD
   menuLink?: string
 }
+=======
+  menuLink?: string;
+
+  /**
+   * Menu Images — `array`
+   *
+   *
+   */
+  menuImages?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
+
+  /**
+   * Menu Type — `string`
+   *
+   *
+   */
+  menuType?: "modal" | "link";
+};
+>>>>>>> aa1fe304408b7a9846993287ff3b99b61cc9e138
 
 export type FormField = {
   _type: 'formField'
@@ -676,6 +741,44 @@ export type FormField = {
    */
   options: Array<SanityKeyed<string>>
 }
+
+export type Aops = {
+  _type: "aops";
+  /**
+   * Aops — `array`
+   *
+   *
+   */
+  aops?: Array<
+    SanityKeyed<{
+      /**
+       * Title — `string`
+       *
+       *
+       */
+      title?: string;
+
+      /**
+       * Description — `text`
+       *
+       *
+       */
+      description?: string;
+
+      /**
+       * Image — `image`
+       *
+       *
+       */
+      image?: {
+        _type: "image";
+        asset: SanityReference<SanityImageAsset>;
+        crop?: SanityImageCrop;
+        hotspot?: SanityImageHotspot;
+      };
+    }>
+  >;
+};
 
 export type Documents =
   | Page

@@ -6,11 +6,11 @@ import PageWrapper from '@common/PageWrapper'
 import Title from '@common/Title'
 
 const inner: FC<PageTemplateProps> = ({ page, ...rest }) => {
-  const { title, content } = page
+  const { title, content, layout } = page
   return (
     <Layout inner {...rest}>
-      <PageWrapper>
-        {!!title && (
+      <PageWrapper isResturant={layout === 'resturants'}>
+        {!!title && layout !== 'resturants' && (
           <Title level="h1" inner>
             {title}
           </Title>

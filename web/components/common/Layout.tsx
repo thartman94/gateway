@@ -2,6 +2,7 @@ import type { FC } from 'react'
 
 import Header from '@common/Header'
 import Footer from '@common/Footer'
+import Modal, { ModalProvider } from 'components/Modal'
 
 const Layout: FC<LayoutProps> = ({
   logos,
@@ -21,7 +22,8 @@ const Layout: FC<LayoutProps> = ({
     jobOpenings,
   } = companyInfo
   return (
-    <>
+    <ModalProvider>
+      <Modal />
       <Header
         menu={menu}
         logos={logos}
@@ -38,7 +40,7 @@ const Layout: FC<LayoutProps> = ({
         employeePortal={employeePortal}
         jobOpenings={jobOpenings}
       />
-    </>
+    </ModalProvider>
   )
 }
 

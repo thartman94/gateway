@@ -49,3 +49,30 @@ export async function buildMenu(rawMenu: NavigationType) {
 
   return await getItems(rawMenu.items)
 }
+
+/**
+ *
+ * Toggle the scroll on the body element. If no argument is passed, the scroll
+ * will be toggled. If "enable" is passed, the scroll will be enabled. If "disable"
+ * is passed, the scroll will be disabled.
+ *
+ *
+ *
+ * @param {string} setTo  The state to set the scroll to. If null, the scroll
+ *                       will be toggled.
+ * @returns {void}      Nothing
+ */
+export const toggleScroll = (action: 'enable' | 'disable') => {
+  if (window === undefined)
+    throw new Error(
+      'window is undefined, toggleScroll was called from a non-browser context.'
+    )
+  if (action === 'enable') {
+    document.body.style.overflowY = 'auto'
+  } else if (action === 'disable') {
+    document.body.style.overflowY = 'hidden'
+  } else {
+    document.body.style.overflowY =
+      document.body.style.overflowY === 'hidden' ? 'auto' : 'hidden'
+  }
+}

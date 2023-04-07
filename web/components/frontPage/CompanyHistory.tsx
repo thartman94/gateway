@@ -7,7 +7,7 @@ import Content from '@common/Content'
 import AnimateIn from '@common/AnimateIn'
 import type { CompanyHistory as CompanyHistoryType } from 'lib/schema'
 
-const Section = tw.section`flex bg-offWhite flex-col items-center relative w-full py-20 gap-20`
+const Section = tw.section`flex bg-offWhite flex-col items-center relative w-full pb-20 md:pt-20 gap-20`
 const Bottom = tw.div`flex flex-col lg:flex-row w-full px-4 md:px-12 gap-12 relative`
 const Half = tw.div`flex flex-col justify-center w-full lg:w-1/2`
 

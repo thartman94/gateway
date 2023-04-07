@@ -54,6 +54,7 @@ export default {
           { title: 'Home', value: 'home' },
           { title: 'Contact', value: 'contact' },
           { title: 'Sitemap', value: 'sitemap' },
+          { title: 'Resturants', value: 'resturants' },
         ],
       },
     },
@@ -77,17 +78,15 @@ export default {
       ],
     },
     {
-      name: 'featuredImage',
-      title: 'Featured Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    },
-    {
       name: 'content',
       title: 'Content',
       type: 'blockContent',
+    },
+    {
+      name: 'formOverride',
+      title: 'Form Override',
+      type: 'reference',
+      to: [{ type: 'form' }],
     },
     {
       name: 'publishStatus',

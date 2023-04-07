@@ -19,65 +19,13 @@ const Component = styled.header<{ inner: boolean; small: boolean }>(
   ]
 )
 
-const Number = tw.a`text-3xl font-poppins hover:text-primary font-semibold`
+const Number = tw.a`text-3xl font-poppins hover:text-primary duration-300 ease-in-out text-offBlack font-semibold`
 const LogoWrapper = styled(Link)`
   ${tw`lg:w-56 w-36 flex items-center justify-center h-full`}
 `
 const NavButton = tw.button`md:hidden flex flex-col shadow-xl justify-center items-center h-16 w-16 border-2 border-offBlack rounded-lg bg-offBlack font-bold text-xs text-white px-3 hover:(text-offBlack bg-white [div]:bg-offBlack) duration-500 ease-in-out`
 
 const Line = tw.div`flex bg-white h-0.5 w-full duration-500 ease-in-out my-[3px] [&:nth-child(2)]:(translate-x-1)`
-
-const navItems = [
-  {
-    title: 'Resturants',
-    url: '/resturants',
-  },
-  {
-    title: 'Services',
-    url: '#',
-    children: [
-      {
-        title: 'Fuel and Trucker Services',
-        url: '/fuel-and-trucking-services',
-      },
-      {
-        title: 'Lodging',
-        url: '/lodging',
-      },
-      {
-        title: 'Shopping',
-        url: '/shopping',
-      },
-      {
-        title: 'Bus Services',
-        url: '/bus-services',
-      },
-      {
-        title: 'Conferences',
-        url: '/conferences',
-      },
-    ],
-  },
-  {
-    title: 'Employment',
-    url: '#',
-    children: [
-      {
-        title: 'Employment Opportunities',
-        url: '#',
-      },
-      {
-        title: 'Current Employees',
-        url: '#',
-      },
-    ],
-  },
-  {
-    title: 'Contact Us',
-    url: '/contact-us',
-    children: [],
-  },
-]
 
 interface FilterProps {
   logos: LogosType
@@ -136,9 +84,10 @@ const Header: FC<FilterProps> = ({
         <span tw="mt-0.5">menu</span>
       </NavButton>
       <MobileNav
-        navItems={navItems}
+        menu={menu}
         isOpen={menuOpen}
         setIsOpen={setMenuOpen}
+        logos={logos}
       />
     </Component>
   )
