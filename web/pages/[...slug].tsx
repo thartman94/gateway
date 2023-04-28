@@ -58,9 +58,23 @@ export const getStaticProps = async ({ params }: { params: any }) => {
   const [logos] = await sanityClient.getAll('logos')
   const [companyInfo] = await sanityClient.getAll('companyInfo')
   const slug = params.slug[0]
-  const page = await defaultSanityClient.fetch(
+  let page = await defaultSanityClient.fetch(
     `*[type == page && slug.current == "${slug}"][0]`
   )
+
+  page = {
+    ...page,
+    content: await Promise.all(
+      page.content.map(async (item: any) => {
+        if (item._type !== 'image') {
+          return item
+        }
+        const image = await sanityClient.expand(item.asset)
+        return { ...item, asset: image }
+      })
+    ),
+  }
+
   let [form] = await sanityClient.getAll('form', 'name == "Contact"')
 
   if (!!page?.formOverride) {

@@ -20,7 +20,13 @@ const Component = styled.header<{ inner: boolean; small: boolean }>(
   ]
 )
 
-const Number = tw.a`text-3xl font-poppins hover:text-primary duration-300 ease-in-out text-offBlack font-semibold`
+const Number = styled.a<{ inner: boolean; small: boolean }>(
+  ({ inner, small }) => [
+    tw`font-poppins hover:text-primary text-offBlack text-3xl font-semibold duration-300 ease-in-out`,
+    inner || small ? tw`text-offBlack` : tw`text-white`,
+  ]
+)
+
 const LogoWrapper = styled(Link)`
   ${tw`lg:w-56 w-36 flex items-center justify-center h-full`}
 `
@@ -85,7 +91,11 @@ const Header: FC<FilterProps> = ({
       <div tw="hidden md:flex flex-col items-end gap-2">
         <DesktopNav menu={menu} />
         {!!phoneNumber && (
-          <Number href={`tel:${cleanPhoneNumber(phoneNumber)}`}>
+          <Number
+            inner={inner}
+            small={smallHeader}
+            href={`tel:${cleanPhoneNumber(phoneNumber)}`}
+          >
             {phoneNumber}
           </Number>
         )}

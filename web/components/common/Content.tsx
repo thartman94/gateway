@@ -3,7 +3,12 @@ import { PortableText } from '@portabletext/react'
 import tw from 'twin.macro'
 import styled, { css } from 'styled-components'
 
-import type { Resturant as ResturantType } from 'lib/schema'
+import Image from '@common/SanityImage'
+
+import type {
+  Resturant as ResturantType,
+  SanityImage as ImageType,
+} from 'lib/schema'
 import Resturant from 'components/content/Resturant'
 
 const styles = () => [
@@ -52,6 +57,15 @@ const components = () => {
       resturant: ({ value }: { value: ResturantType }) => {
         return <Resturant {...value} />
       },
+      image: ({ value }: { value: any }) => {
+        console.log(value)
+        return (
+          <Image
+            image={value.asset}
+            tw="left-0 right-0 mx-auto mb-12 shadow-xl"
+          />
+        )
+      },
     },
     block: {},
   }
@@ -64,6 +78,8 @@ interface ContentProps {
 
 const Content: FC<ContentProps> = ({ article = false, content }) => {
   const Wrapper = article ? Article : Div
+
+  console.log(content)
 
   return (
     <Wrapper>
