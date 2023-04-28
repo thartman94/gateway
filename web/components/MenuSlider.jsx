@@ -47,7 +47,6 @@ const MenuSlider = ({ images, ...rest }) => {
           $flip
           onClick={() => {
             slider.current.slickNext()
-            console.log(slider.current)
           }}
         >
           <CgPushChevronRight />

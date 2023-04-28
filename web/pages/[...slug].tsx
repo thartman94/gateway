@@ -64,15 +64,17 @@ export const getStaticProps = async ({ params }: { params: any }) => {
 
   page = {
     ...page,
-    content: await Promise.all(
-      page.content.map(async (item: any) => {
-        if (item._type !== 'image') {
-          return item
-        }
-        const image = await sanityClient.expand(item.asset)
-        return { ...item, asset: image }
-      })
-    ),
+    content: page.content
+      ? await Promise.all(
+          page.content.map(async (item: any) => {
+            if (item._type !== 'image') {
+              return item
+            }
+            const image = await sanityClient.expand(item.asset)
+            return { ...item, asset: image }
+          })
+        )
+      : null,
   }
 
   let [form] = await sanityClient.getAll('form', 'name == "Contact"')

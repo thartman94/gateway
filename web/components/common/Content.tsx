@@ -58,7 +58,6 @@ const components = () => {
         return <Resturant {...value} />
       },
       image: ({ value }: { value: any }) => {
-        console.log(value)
         return (
           <Image
             image={value.asset}
@@ -78,8 +77,6 @@ interface ContentProps {
 
 const Content: FC<ContentProps> = ({ article = false, content }) => {
   const Wrapper = article ? Article : Div
-
-  console.log(content)
 
   return (
     <Wrapper>
