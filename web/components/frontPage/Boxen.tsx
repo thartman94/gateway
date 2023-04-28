@@ -5,15 +5,15 @@ import styled from 'styled-components'
 import AnimateIn from '@common/AnimateIn'
 import ImSanityImageage from '@common/SanityImage'
 
-const Section = tw.section`flex relative flex-wrap flex-col md:flex-row w-full items-stretch justify-between pt-10 px-4 md:px-20`
+const Section = tw.section`flex relative flex-wrap flex-col md:flex-row w-full items-stretch justify-between py-20 px-4 md:px-20`
 
 const Box = styled(AnimateIn)`
-  ${tw`z-10 text-center items-center duration-300 ease-in-out flex flex-col text-xl font-bold md:max-w-[50%] xl:max-w-[25%] w-full justify-end mb-12 md:mb-20`}
+  ${tw`z-10 text-center items-center duration-300 px-8 ease-in-out flex flex-col text-xl font-bold md:max-w-[50%] xl:max-w-[25%] w-full justify-end mb-12 md:mb-20`}
 `
 const Title = tw.h3`text-2xl md:text-3xl font-bold after:([content:''] block w-2/3 mx-auto h-1 bg-primary mt-2) text-center`
-const Description = tw.p`text-sm md:text-lg mt-2 md:absolute text-center w-full top-full`
+const Description = tw.p`text-sm md:text-lg mt-2 md:absolute text-center w-full font-normal top-full`
 const Image = styled(ImSanityImageage)`
-  ${tw`md:max-w-[50%] object-contain mb-4`}
+  ${tw`md:max-w-[75%] max-h-[11rem] object-contain mb-6`}
 `
 
 interface Props {
