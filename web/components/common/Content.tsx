@@ -4,12 +4,13 @@ import tw from 'twin.macro'
 import styled, { css } from 'styled-components'
 
 import Image from '@common/SanityImage'
+import Callout from '@content/Callout'
+import Resturant from 'components/content/Resturant'
 
 import type {
   Resturant as ResturantType,
   SanityImage as ImageType,
 } from 'lib/schema'
-import Resturant from 'components/content/Resturant'
 
 const styles = () => [
   tw`w-full`,
@@ -65,6 +66,7 @@ const components = () => {
           />
         )
       },
+      callout: ({ value }: { value: any }) => <Callout {...value} />,
     },
     block: {},
   }
@@ -75,11 +77,12 @@ interface ContentProps {
   article?: boolean
 }
 
-const Content: FC<ContentProps> = ({ article = false, content }) => {
+const Content: FC<ContentProps> = ({ article = false, content, ...rest }) => {
   const Wrapper = article ? Article : Div
+  console.log(content)
 
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <PortableText value={content} components={components()} />
     </Wrapper>
   )

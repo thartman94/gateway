@@ -22,6 +22,7 @@ import blockContent from './objects/blockContent'
 import companyHistory from './objects/companyHistory'
 import services from './objects/services'
 import resturant from './objects/resturant'
+import callout from './objects/callout'
 import formField from './objects/formField'
 import aops from './objects/aops'
 
@@ -52,5 +53,6 @@ export default createSchema({
     resturant,
     formField,
     aops,
+    callout,
   ]),
 })
