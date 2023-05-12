@@ -25,6 +25,7 @@ import resturant from './objects/resturant'
 import callout from './objects/callout'
 import formField from './objects/formField'
 import aops from './objects/aops'
+import contentButton from './objects/contentButton'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -54,5 +55,6 @@ export default createSchema({
     formField,
     aops,
     callout,
+    contentButton,
   ]),
 })

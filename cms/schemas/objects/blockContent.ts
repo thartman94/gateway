@@ -100,5 +100,8 @@ export default {
     {
       type: 'callout',
     },
+    {
+      type: 'contentButton',
+    },
   ],
 }

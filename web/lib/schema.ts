@@ -376,6 +376,22 @@ export interface Form extends SanityDocument {
   submitText: string;
 }
 
+/**
+ * Callout
+ *
+ *
+ */
+export interface Callout extends SanityDocument {
+  _type: "callout";
+
+  /**
+   * Content — `blockContent`
+   *
+   *
+   */
+  content?: BlockContent;
+}
+
 export type CompanyHistory = {
   _type: "companyHistory";
   /**
@@ -543,6 +559,8 @@ export type BlockContent = Array<
       hotspot?: SanityImageHotspot;
     }>
   | SanityKeyed<Resturant>
+  | SanityKeyed<Callout>
+  | SanityKeyed<ContentButton>
 >;
 
 export type Services = {
@@ -750,6 +768,23 @@ export type Aops = {
   >;
 };
 
+export type ContentButton = {
+  _type: "contentButton";
+  /**
+   * Button Text — `string`
+   *
+   *
+   */
+  buttonText?: string;
+
+  /**
+   * Button Link — `url`
+   *
+   *
+   */
+  buttonLink?: string;
+};
+
 export type Documents =
   | Page
   | Navigation
@@ -757,4 +792,5 @@ export type Documents =
   | CompanyInfo
   | HomePage
   | MetaData
-  | Form;
+  | Form
+  | Callout;

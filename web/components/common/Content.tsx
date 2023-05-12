@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components'
 
 import Image from '@common/SanityImage'
 import Resturant from 'components/content/Resturant'
+import Button from 'components/content/Button'
 
 import type {
   Resturant as ResturantType,
@@ -72,13 +73,13 @@ const components = () => {
         )
       },
       callout: ({ value }: { value: any }) => {
-        console.log(value)
         return (
           <CalloutWrapper>
             <PortableText value={value.content} />
           </CalloutWrapper>
         )
       },
+      contentButton: ({ value }: { value: any }) => <Button {...value} />,
     },
     block: {},
   }
