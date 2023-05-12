@@ -4,13 +4,18 @@ import tw from 'twin.macro'
 import styled, { css } from 'styled-components'
 
 import Image from '@common/SanityImage'
-import Callout from '@content/Callout'
 import Resturant from 'components/content/Resturant'
 
 import type {
   Resturant as ResturantType,
   SanityImage as ImageType,
 } from 'lib/schema'
+
+const CalloutWrapper = tw.div`bg-font font-poppins text-white text-center text-lg py-8 px-12 shadow-xl -translate-x-4 w-[calc(100% + 2rem)] sm:(w-auto translate-x-0 text-left text-xl) my-8 flex relative flex-col [a]:(text-primary hover:(text-primary underline))
+after:([content: ''] w-3 h-full absolute right-0 top-0 bg-primary)
+before:([content: ''] w-3 h-full absolute top-0 left-0 bg-primary)
+[*]:mb-0!
+`
 
 const styles = () => [
   tw`w-full`,
@@ -66,7 +71,14 @@ const components = () => {
           />
         )
       },
-      callout: ({ value }: { value: any }) => <Callout {...value} />,
+      callout: ({ value }: { value: any }) => {
+        console.log(value)
+        return (
+          <CalloutWrapper>
+            <PortableText value={value.content} />
+          </CalloutWrapper>
+        )
+      },
     },
     block: {},
   }
@@ -79,7 +91,6 @@ interface ContentProps {
 
 const Content: FC<ContentProps> = ({ article = false, content, ...rest }) => {
   const Wrapper = article ? Article : Div
-  console.log(content)
 
   return (
     <Wrapper {...rest}>
