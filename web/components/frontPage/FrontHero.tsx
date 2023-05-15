@@ -34,7 +34,7 @@ const FrontHero: FC<FrontHeroProps> = ({
         <Image
           image={image}
           alt="hero image"
-          tw="object-cover brightness-[40%] absolute h-full w-full z-behind"
+          tw="object-cover brightness-[60%] absolute h-full w-full z-behind"
         />
       ) : !!video ? (
         <Video
